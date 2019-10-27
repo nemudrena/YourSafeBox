@@ -1,15 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:columnCount="2"
+    android:background="@drawable/back"
+    android:orientation="horizontal"
     tools:context=".ActivityWays">
 
-    <ExpandableListView
-        android:id="@+id/expListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ExpandableListView>
-</LinearLayout>
+    <Button
+        android:id="@+id/button_music"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="60dp"
+        android:onClick="to_window_music"
+        android:text="@string/btn_music"
+        android:background="@drawable/music"
+        android:gravity="bottom|center_horizontal"
+        android:textSize="15sp">
+    </Button>
+    <Button
+        android:id="@+id/button_movies"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="60dp"
+        android:layout_gravity="right"
+        android:onClick="to_window_movies"
+        android:text="@string/btn_movies"
+        android:background="@drawable/movie"
+        android:gravity="bottom|center_horizontal"
+        android:textSize="15sp">
+    </Button>
+    <Button
+        android:id="@+id/button_places"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp"
+        android:onClick="to_window_places"
+        android:text="@string/btn_places"
+        android:background="@drawable/place"
+        android:gravity="bottom|center_horizontal"
+        android:textSize="15sp">
+    </Button>
+    <Button
+        android:id="@+id/button_taste"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="60dp"
+        android:layout_gravity="right"
+        android:onClick="to_window_taste"
+        android:text="@string/btn_taste"
+        android:background="@drawable/taste"
+        android:gravity="bottom|center_horizontal"
+        android:textSize="15sp">
+    </Button>
+    <Button
+        android:id="@+id/button_aroma"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp"
+        android:onClick="to_window_aroma"
+        android:text="@string/btn_aroma"
+        android:background="@drawable/aroma"
+        android:gravity="bottom|center_horizontal"
+        android:textSize="15sp">
+    </Button>
+    <Button
+        android:id="@+id/button_sence"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="60dp"
+        android:layout_gravity="right"
+        android:onClick="to_window_sence"
+        android:text="@string/btn_sence"
+        android:background="@drawable/game"
+        android:gravity="bottom|center_horizontal"
+        android:textSize="15sp">
+    </Button>
+
+</GridLayout>

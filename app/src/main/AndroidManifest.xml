@@ -9,8 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityPics"></activity>
-        <activity android:name=".ActivityWays"></activity>
+        <activity android:name=".ActivityAroma"></activity>
+        <activity android:name=".ActivitySence" />
+        <activity android:name=".ActivityTaste" />
+        <activity android:name=".ActivityPlaces" />
+        <activity android:name=".ActivityMovies" />
+        <activity android:name=".ActivityMusic" />
+        <activity android:name=".ActivityPics" />
+        <activity android:name=".ActivityWays" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

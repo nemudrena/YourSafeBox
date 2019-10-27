@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">YourSafeBox</string>
-    <string name="btn_ways">Способы поднять себе настроение</string>
+    <string name="btn_ways">Подними себе настроение</string>
     <string name="btn_pics">Если день кажется серым как никогда</string>
-    <string name="hello_world">Вы прекрасны как рассвет</string>
+    <string name="hello">Вы прекрасны, как рассвет</string>
+    <string name="btn_music">Музыка</string>
+    <string name="btn_movies">Фильмы</string>
+    <string name="btn_places">Места</string>
+    <string name="btn_aroma">Ароматы</string>
+    <string name="btn_taste">Вкусы</string>
+    <string name="btn_sence">Руки</string>
 </resources>
