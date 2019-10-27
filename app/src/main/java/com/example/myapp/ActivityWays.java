@@ -19,7 +19,6 @@ public class ActivityWays extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.window_ways);
-
     }
     public void to_window_music(View view){
         Intent intent = new Intent(this, ActivityMusic.class);
