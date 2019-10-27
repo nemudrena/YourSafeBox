@@ -80,7 +80,7 @@
         android:layout_gravity="right"
         android:onClick="to_window_sence"
         android:text="@string/btn_sence"
-        android:background="@drawable/game"
+        android:background="@drawable/sence"
         android:gravity="bottom|center_horizontal"
         android:textSize="15sp">
     </Button>
