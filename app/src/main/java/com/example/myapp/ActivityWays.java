@@ -26,7 +26,6 @@ public class ActivityWays extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.window_ways);
-        setTitle("Locale Date");
 
         Map<String, String> map;
         // коллекция для групп
