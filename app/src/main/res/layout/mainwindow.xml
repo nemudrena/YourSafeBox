@@ -27,6 +27,7 @@
         android:background="#90FFFFFF"
         android:onClick="to_window_ways"
         android:text="@string/btn_ways"
+        android:textColor="#BE000000"
         android:textSize="20sp">
 
     </Button>
@@ -41,6 +42,7 @@
         android:onClick="to_window_pics"
         android:text="@string/btn_pics"
         android:background="#90FFFFFF"
+        android:textColor="#BE000000"
         android:textSize="20sp">
 
     </Button>
