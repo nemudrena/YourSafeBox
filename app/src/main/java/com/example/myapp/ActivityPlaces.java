@@ -6,75 +6,32 @@ import android.os.Bundle;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 public class ActivityPlaces extends AppCompatActivity {
-    private String[] groups = new String[] { "Кладбища", "МИЭМ" };
-    private String[] cemetery = new String[] { "Ваганьковское", "Новодевичье" };
-    private String[] MIEM = new String[] { "МИЭМ" };
+    private Ways[] groups = new Ways[] { new Ways("Кладбища"), new Ways("МИЭМ") };
+    private Ways[] cemetery = new Ways[] { new Ways("Ваганьковское"),
+            new Ways("Новодевичье") };
+    private Ways[] miem = new Ways[] { new Ways("МИЭМ") };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
 
-        Map<String, String> map;
-        // коллекция для групп
-        ArrayList<Map<String, String>> groupDataList = new ArrayList<>();
-        // заполняем коллекцию групп из массива с названиями групп
+        ListOfWays list = new ListOfWays(groups, cemetery, miem);
 
-        for (String group : groups) {
-            // заполняем список атрибутов для каждой группы
-            map = new HashMap<>();
-            map.put("groupName", group); // время года
-            groupDataList.add(map);
-        }
+        String[] groupFrom = new String[]{"groupName"};
+        int[] groupTo = new int[]{android.R.id.text1};
 
-        // список атрибутов групп для чтения
-        String groupFrom[] = new String[] { "groupName" };
-        // список ID view-элементов, в которые будет помещены атрибуты групп
-        int groupTo[] = new int[] { android.R.id.text1 };
-
-        // создаем общую коллекцию для коллекций элементов
-        ArrayList<ArrayList<Map<String, String>>> сhildDataList = new ArrayList<>();
-
-        // в итоге получится сhildDataList = ArrayList<сhildDataItemList>
-
-        // создаем коллекцию элементов для первой группы
-        ArrayList<Map<String, String>> сhildDataItemList = new ArrayList<>();
-        // заполняем список атрибутов для каждого элемента
-        for (String song : cemetery) {
-            map = new HashMap<>();
-            map.put("genre", song); // название месяца
-            сhildDataItemList.add(map);
-        }
-        // добавляем в коллекцию коллекций
-        сhildDataList.add(сhildDataItemList);
-
-        // создаем коллекцию элементов для второй группы
-        сhildDataItemList = new ArrayList<>();
-        for (String song : MIEM) {
-            map = new HashMap<>();
-            map.put("genre", song);
-            сhildDataItemList.add(map);
-        }
-        сhildDataList.add(сhildDataItemList);
-
-        // список атрибутов элементов для чтения
-        String childFrom[] = new String[] { "genre" };
-        // список ID view-элементов, в которые будет помещены атрибуты
-        // элементов
-        int childTo[] = new int[] { android.R.id.text1 };
+        String[] childFrom = new String[]{"genre"};
+        int[] childTo = new int[]{android.R.id.text1};
 
         SimpleExpandableListAdapter adapter = new SimpleExpandableListAdapter(
-                this, groupDataList,
+                this, list.getTitleList(),
                 android.R.layout.simple_expandable_list_item_1, groupFrom,
-                groupTo, сhildDataList, android.R.layout.simple_list_item_1,
+                groupTo, list.getData(), android.R.layout.simple_list_item_1,
                 childFrom, childTo);
 
-        ExpandableListView expandableListView = (ExpandableListView)findViewById(R.id.expListViewPl);
+        ExpandableListView expandableListView = findViewById(R.id.expListViewPl);
         expandableListView.setAdapter(adapter);
     }
 }

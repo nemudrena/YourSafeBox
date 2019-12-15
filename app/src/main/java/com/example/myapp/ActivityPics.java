@@ -25,7 +25,7 @@ public class ActivityPics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.window_pics);
 
-        imageView = (ImageView)findViewById(R.id.ivImage);
+        imageView = findViewById(R.id.ivImage);
         imageView.setImageResource(mImageIds[0]);
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -44,4 +44,4 @@ public class ActivityPics extends AppCompatActivity {
         position = rand.nextInt((max - min)) + min;
         return position;
     }
-    }
+}

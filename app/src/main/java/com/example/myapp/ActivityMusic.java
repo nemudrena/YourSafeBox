@@ -1,80 +1,39 @@
 package com.example.myapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
+import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivityMusic extends AppCompatActivity {
-    private String[] groups = new String[] { "Рок", "Поп" };
-    private String[] rock = new String[] { "Звери", "Placebo", "Powerwolf" };
-    private String[] pop = new String[] { "Lady Gaga", "Adele"};
+    private Ways[] genre = new Ways[]{new Ways("Rock"), new Ways("Pop")};
+    private Ways[] rock = new Ways[]{new Ways("Звери"), new Ways("Placebo"),
+            new Ways("Powerwolf")};
+    private Ways[] pop = new Ways[]{new Ways("Lady Gaga"), new Ways("Adele")};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
 
-        Map<String, String> map;
-        // коллекция для групп
-        ArrayList<Map<String, String>> groupDataList = new ArrayList<>();
-        // заполняем коллекцию групп из массива с названиями групп
+        final ListOfWays list = new ListOfWays(genre, rock, pop);
 
-        for (String group : groups) {
-            // заполняем список атрибутов для каждой группы
-            map = new HashMap<>();
-            map.put("groupName", group); // время года
-            groupDataList.add(map);
-        }
+        String[] groupFrom = new String[]{"groupName"};
+        int[] groupTo = new int[]{android.R.id.text1};
 
-        // список атрибутов групп для чтения
-        String groupFrom[] = new String[] { "groupName" };
-        // список ID view-элементов, в которые будет помещены атрибуты групп
-        int groupTo[] = new int[] { android.R.id.text1 };
-
-        // создаем общую коллекцию для коллекций элементов
-        ArrayList<ArrayList<Map<String, String>>> сhildDataList = new ArrayList<>();
-
-        // в итоге получится сhildDataList = ArrayList<сhildDataItemList>
-
-        // создаем коллекцию элементов для первой группы
-        ArrayList<Map<String, String>> сhildDataItemList = new ArrayList<>();
-        // заполняем список атрибутов для каждого элемента
-        for (String song : rock) {
-            map = new HashMap<>();
-            map.put("genre", song); // название месяца
-            сhildDataItemList.add(map);
-        }
-        // добавляем в коллекцию коллекций
-        сhildDataList.add(сhildDataItemList);
-
-        // создаем коллекцию элементов для второй группы
-        сhildDataItemList = new ArrayList<>();
-        for (String song : pop) {
-            map = new HashMap<>();
-            map.put("genre", song);
-            сhildDataItemList.add(map);
-        }
-        сhildDataList.add(сhildDataItemList);
-
-        // список атрибутов элементов для чтения
-        String childFrom[] = new String[] { "genre" };
-        // список ID view-элементов, в которые будет помещены атрибуты
-        // элементов
-        int childTo[] = new int[] { android.R.id.text1 };
+        String[] childFrom = new String[]{"genre"};
+        int[] childTo = new int[]{android.R.id.text1};
 
         SimpleExpandableListAdapter adapter = new SimpleExpandableListAdapter(
-                this, groupDataList,
+                this, list.getTitleList(),
                 android.R.layout.simple_expandable_list_item_1, groupFrom,
-                groupTo, сhildDataList, android.R.layout.simple_list_item_1,
+                groupTo, list.getData(), android.R.layout.simple_list_item_1,
                 childFrom, childTo);
 
-        ExpandableListView expandableListView = (ExpandableListView)findViewById(R.id.expListViewMus);
+        ExpandableListView expandableListView = findViewById(R.id.expListViewMus);
         expandableListView.setAdapter(adapter);
 
     }

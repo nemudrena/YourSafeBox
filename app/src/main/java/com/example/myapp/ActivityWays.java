@@ -3,14 +3,8 @@ package com.example.myapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ExpandableListView;
-import android.widget.SimpleExpandableListAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class ActivityWays extends AppCompatActivity {
