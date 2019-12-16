@@ -9,14 +9,14 @@ public class ListOfWays {
     private ArrayList<Map<String, String>> titleDataList;
     private ArrayList<ArrayList<Map<String, String>>> expListDetail;
 
-    public ListOfWays(Ways[] titles, Ways[] one, Ways[] two){
+    public ListOfWays(ArrayList<Ways> titles, ArrayList<Ways> one, ArrayList<Ways> two){
         titleDataList = formArrayList("groupName", titles);
 
         expListDetail = formContentList("genre", one, two);
 
     }
 
-    public ArrayList<Map<String, String>> formArrayList(String key, Ways[] way){
+    public ArrayList<Map<String, String>> formArrayList(String key, ArrayList<Ways> way){
         ArrayList<Map<String, String>> dataList = new ArrayList<>();
         for (Ways item : way) {
             map = new HashMap<>();
@@ -27,8 +27,8 @@ public class ListOfWays {
         return dataList;
     }
 
-    public ArrayList<ArrayList<Map<String, String>>> formContentList(String key,
-                                                                     Ways[] one, Ways[] two){
+    public ArrayList<ArrayList<Map<String, String>>>
+    formContentList(String key, ArrayList<Ways> one, ArrayList<Ways> two){
 
         ArrayList<ArrayList<Map<String, String>>> childDataList = new ArrayList<>();
 
@@ -41,6 +41,19 @@ public class ListOfWays {
 
         return childDataList;
     }
+
+    public void upDateContentList(String key, ArrayList<Ways> one, ArrayList<Ways> two){
+        expListDetail.clear();
+
+        ArrayList<Map<String, String>> childDataItemList = formArrayList(key, one);
+        expListDetail.add(childDataItemList);
+
+        childDataItemList = formArrayList(key, two);
+        expListDetail.add(childDataItemList);
+
+    }
+
+
 
     public ArrayList<Map<String, String>> getTitleList(){
         return titleDataList;
