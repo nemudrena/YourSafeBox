@@ -90,6 +90,9 @@ public class ActivityMovies extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         }
+        else if (item.getItemId() == R.id.option_link){
+
+        }
 
         return super.onContextItemSelected(item);
     }

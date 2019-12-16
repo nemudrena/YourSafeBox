@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
@@ -16,9 +18,13 @@ import java.util.Random;
 
 public class ActivityPics extends AppCompatActivity {
     private ImageView imageView;
+    private String fullScreenInd;
     int position = 0;
     private int[] mImageIds = { R.drawable.happy1, R.drawable.happy2,
-            R.drawable.happy3, R.drawable.happy4, R.drawable.happy5 };
+            R.drawable.happy3, R.drawable.happy4, R.drawable.happy5, R.drawable.happy6,
+            R.drawable.happy7, R.drawable.happy8, R.drawable.happy9, R.drawable.happy10,
+            R.drawable.happy11, R.drawable.happy12, R.drawable.happy13, R.drawable.happy14,
+            R.drawable.happy15 };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +47,13 @@ public class ActivityPics extends AppCompatActivity {
         Random rand = new Random();
         int max = mImageIds.length;
         int min = 0;
-        position = rand.nextInt((max - min)) + min;
+        int result = rand.nextInt((max - min)) + min;
+        if (result == position)
+            getRandomPosotion();
+        else {
+            position = result;
+        }
         return position;
     }
+
 }
