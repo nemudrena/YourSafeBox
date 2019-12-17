@@ -69,13 +69,13 @@ public class ActivityTaste extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        getMenuInflater().inflate(R.menu.option_menu, menu);
+        getMenuInflater().inflate(R.menu.option_menu1, menu);
     }
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-        if (item.getItemId() == R.id.option_del){
+        if (item.getItemId() == R.id.option_del1){
             if (groupPos == 0) {
 
                 sweet.remove(childPos);
