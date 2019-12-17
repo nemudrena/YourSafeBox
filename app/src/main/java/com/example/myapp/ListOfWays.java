@@ -9,7 +9,7 @@ public class ListOfWays {
     private ArrayList<Map<String, String>> titleDataList;
     private ArrayList<ArrayList<Map<String, String>>> expListDetail;
 
-
+    //ehhhhh
     public ListOfWays(ArrayList<Ways> titles, ArrayList<Ways> one, ArrayList<Ways> two, int i){
 
         titleDataList = formArrayList("groupName", titles, 0);
