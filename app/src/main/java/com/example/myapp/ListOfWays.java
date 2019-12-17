@@ -36,7 +36,8 @@ public class ListOfWays {
         return dataList;
     }
 
-    public ArrayList<Map<String, String>> formArrayList(String key, ArrayList<WaysWLinks> wayWLinks){
+    public ArrayList<Map<String, String>> formArrayList(
+            String key, ArrayList<WaysWLinks> wayWLinks){
         ArrayList<Map<String, String>> dataList = new ArrayList<>();
         for (WaysWLinks item : wayWLinks) {
             map = new HashMap<>();

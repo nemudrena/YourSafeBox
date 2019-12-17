@@ -13,7 +13,8 @@
         <activity android:name=".ActivitySence" />
         <activity android:name=".ActivityTaste" />
         <activity android:name=".ActivityPlaces" />
-        <activity android:name=".ActivityMovies" />
+        <activity android:name=".ActivityMovies"
+            android:launchMode="singleTask"/>
         <activity android:name=".ActivityMusic" />
         <activity android:name=".ActivityPics" />
         <activity android:name=".ActivityWays" />
