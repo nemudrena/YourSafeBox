@@ -92,9 +92,6 @@ public class ActivityMovies extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         }
-        else if (item.getItemId() == R.id.option_link){
-
-        }
 
         if(item.getItemId() == R.id.option_link){
             if (groupPos == 0) {
