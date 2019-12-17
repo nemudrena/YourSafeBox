@@ -35,7 +35,7 @@ public class ActivitySence extends AppCompatActivity {
         hand.add(new Ways("Обними медведя"));
         hand.add(new Ways("Деградни и покрути спиннер"));
 
-        list = new ListOfWays(groups, computer, hand);
+        list = new ListOfWays(groups, computer, hand, 0);
 
         String[] groupFrom = new String[]{"groupName"};
         int[] groupTo = new int[]{android.R.id.text1};
@@ -79,12 +79,12 @@ public class ActivitySence extends AppCompatActivity {
             if (groupPos == 0) {
 
                 computer.remove(childPos);
-                list.upDateContentList("genre", computer, hand);
+                list.upDateContentList("genre", computer, hand, 0);
                 adapter.notifyDataSetChanged();
             }
             else{
                 hand.remove(childPos);
-                list.upDateContentList("genre", computer, hand);
+                list.upDateContentList("genre", computer, hand, 0);
                 adapter.notifyDataSetChanged();
             }
         }

@@ -1,5 +1,7 @@
 package com.example.myapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -14,8 +16,8 @@ import java.util.ArrayList;
 
 public class ActivityMusic extends AppCompatActivity {
     private ArrayList<Ways> genre = new ArrayList<>();
-    private ArrayList<Ways> rock = new ArrayList<>();
-    private ArrayList<Ways>  pop = new ArrayList<>();
+    private ArrayList<WaysWLinks> rock = new ArrayList<>();
+    private ArrayList<WaysWLinks>  pop = new ArrayList<>();
 
     private int groupPos;
     private int childPos;
@@ -30,12 +32,12 @@ public class ActivityMusic extends AppCompatActivity {
         genre.add(new Ways("Rock"));
         genre.add(new Ways("Pop"));
 
-        rock.add(new Ways("Звери"));
-        rock.add(new Ways("Placebo"));
-        rock.add(new Ways("Powerwolf"));
+        rock.add(new WaysWLinks("Звери", "https://music.yandex.ru/artist/156427"));
+        rock.add(new WaysWLinks("Placebo", "https://music.yandex.ru/artist/36830"));
+        rock.add(new WaysWLinks("Powerwolf", "https://music.yandex.ru/artist/1529749"));
 
-        pop.add(new Ways("Lady Gaga"));
-        pop.add(new Ways("Adele"));
+        pop.add(new WaysWLinks("Lady Gaga", "https://music.yandex.ru/artist/1438"));
+        pop.add(new WaysWLinks("Adele", "https://music.yandex.ru/artist/37027"));
 
         list = new ListOfWays(genre, rock, pop);
 
@@ -103,6 +105,20 @@ public class ActivityMusic extends AppCompatActivity {
             }
         }
 
+        if (item.getItemId() == R.id.option_link){
+            if (groupPos == 0) {
+                WaysWLinks link = rock.get(childPos);
+                String url = link.getLink();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+            }
+            else{
+                WaysWLinks link = pop.get(childPos);
+                String url = link.getLink();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+            }
+        }
         return super.onContextItemSelected(item);
     }
 }

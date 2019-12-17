@@ -34,7 +34,7 @@ public class ActivityPlaces extends AppCompatActivity {
 
         miem.add(new Ways("МИЭМ"));
 
-        list = new ListOfWays(groups, cemetery, miem);
+        list = new ListOfWays(groups, cemetery, miem, 0);
 
         String[] groupFrom = new String[]{"groupName"};
         int[] groupTo = new int[]{android.R.id.text1};
@@ -78,12 +78,12 @@ public class ActivityPlaces extends AppCompatActivity {
             if (groupPos == 0) {
 
                 cemetery.remove(childPos);
-                list.upDateContentList("genre", cemetery, miem);
+                list.upDateContentList("genre", cemetery, miem, 0);
                 adapter.notifyDataSetChanged();
             }
             else{
                 miem.remove(childPos);
-                list.upDateContentList("genre", cemetery, miem);
+                list.upDateContentList("genre", cemetery, miem, 0);
                 adapter.notifyDataSetChanged();
             }
         }

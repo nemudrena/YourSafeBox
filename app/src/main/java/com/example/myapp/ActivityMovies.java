@@ -2,6 +2,8 @@ package com.example.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -13,8 +15,8 @@ import java.util.ArrayList;
 
 public class ActivityMovies extends AppCompatActivity {
     private ArrayList<Ways> genre = new ArrayList<>();
-    private ArrayList<Ways> comedy = new ArrayList<>();
-    private ArrayList<Ways>  love = new ArrayList<>();
+    private ArrayList<WaysWLinks> comedy = new ArrayList<>();
+    private ArrayList<WaysWLinks>  love = new ArrayList<>();
 
     private int groupPos;
     private int childPos;
@@ -29,12 +31,12 @@ public class ActivityMovies extends AppCompatActivity {
         genre.add(new Ways("Комедии"));
         genre.add(new Ways("Лирические"));
 
-        comedy.add(new Ways("Титаник"));
-        comedy.add(new Ways("Хатико"));
-        comedy.add(new Ways("Реквием по мечте"));
+        comedy.add(new WaysWLinks("Титаник", "https://www.kinopoisk.ru/film/2213/"));
+        comedy.add(new WaysWLinks("Хатико", "https://www.kinopoisk.ru/film/387556/"));
+        comedy.add(new WaysWLinks("Реквием по мечте", "https://www.kinopoisk.ru/film/367/"));
 
-        love.add(new Ways("Горбатая гора"));
-        love.add(new Ways("Одинокий мужчина"));
+        love.add(new WaysWLinks("Горбатая гора", "https://www.kinopoisk.ru/film/77647/"));
+        love.add(new WaysWLinks("Одинокий мужчина", "https://www.kinopoisk.ru/film/430593/"));
 
         list = new ListOfWays(genre, comedy, love);
 
@@ -92,6 +94,22 @@ public class ActivityMovies extends AppCompatActivity {
         }
         else if (item.getItemId() == R.id.option_link){
 
+        }
+
+        if(item.getItemId() == R.id.option_link){
+            if (groupPos == 0) {
+                WaysWLinks link = comedy.get(childPos);
+                String url = link.getLink();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+
+            }
+            else{
+                WaysWLinks link = love.get(childPos);
+                String url = link.getLink();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+            }
         }
 
         return super.onContextItemSelected(item);

@@ -35,7 +35,7 @@ public class ActivityAroma extends AppCompatActivity {
         flower.add(new Ways("Роза"));
         flower.add(new Ways("Лаванда"));
 
-        list = new ListOfWays(smells, sweet, flower);
+        list = new ListOfWays(smells, sweet, flower, 0);
 
         String[] groupFrom = new String[]{"groupName"};
         int[] groupTo = new int[]{android.R.id.text1};
@@ -80,12 +80,12 @@ public class ActivityAroma extends AppCompatActivity {
             if (groupPos == 0) {
 
                 sweet.remove(childPos);
-                list.upDateContentList("genre", sweet, flower);
+                list.upDateContentList("genre", sweet, flower, 0);
                 adapter.notifyDataSetChanged();
             }
             else{
                 flower.remove(childPos);
-                list.upDateContentList("genre", sweet, flower);
+                list.upDateContentList("genre", sweet, flower, 0);
                 adapter.notifyDataSetChanged();
             }
         }

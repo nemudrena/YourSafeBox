@@ -35,7 +35,7 @@ public class ActivityTaste extends AppCompatActivity {
         salt.add(new Ways("Твои слезы при виде списка билетов по матану"));
         salt.add(new Ways("***"));
 
-        list = new ListOfWays(groups, sweet, salt);
+        list = new ListOfWays(groups, sweet, salt, 0);
 
         String[] groupFrom = new String[]{"groupName"};
         int[] groupTo = new int[]{android.R.id.text1};
@@ -79,12 +79,12 @@ public class ActivityTaste extends AppCompatActivity {
             if (groupPos == 0) {
 
                 sweet.remove(childPos);
-                list.upDateContentList("genre", sweet, salt);
+                list.upDateContentList("genre", sweet, salt, 0);
                 adapter.notifyDataSetChanged();
             }
             else{
                 salt.remove(childPos);
-                list.upDateContentList("genre", sweet, salt);
+                list.upDateContentList("genre", sweet, salt, 0);
                 adapter.notifyDataSetChanged();
             }
         }
