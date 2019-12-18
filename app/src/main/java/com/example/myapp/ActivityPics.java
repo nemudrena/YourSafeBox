@@ -4,21 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.Button;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
-import android.widget.ViewSwitcher;
-
-import java.io.OptionalDataException;
 import java.util.Random;
 
 public class ActivityPics extends AppCompatActivity {
     private ImageView imageView;
-    private String fullScreenInd;
     int position = 0;
     private int[] mImageIds = { R.drawable.happy1, R.drawable.happy2,
             R.drawable.happy3, R.drawable.happy4, R.drawable.happy5, R.drawable.happy6,

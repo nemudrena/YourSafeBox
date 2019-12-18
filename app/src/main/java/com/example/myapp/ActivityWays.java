@@ -38,6 +38,4 @@ public class ActivityWays extends AppCompatActivity  {
         Intent intent = new Intent(this, ActivitySence.class);
         startActivity(intent);
     }
-
-
 }

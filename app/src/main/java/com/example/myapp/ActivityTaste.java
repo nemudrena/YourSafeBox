@@ -39,8 +39,8 @@ public class ActivityTaste extends AppCompatActivity {
         sweet.add(new Ways("Шоколадка"));
         sweet.add(new Ways("Зефирка"));
 
-        salt.add(new Ways("Твои слезы при виде списка билетов по матану"));
-        salt.add(new Ways("***"));
+        salt.add(new Ways("Чипсы"));
+        salt.add(new Ways("Попкорн"));
 
         list = new ListOfWays(groups, sweet, salt, 0);
 

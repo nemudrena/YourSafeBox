@@ -20,8 +20,8 @@ import java.util.ArrayList;
 
 public class ActivityPlaces extends AppCompatActivity {
     private ArrayList<Ways> groups = new ArrayList<>();
-    private ArrayList<Ways> cemetery = new ArrayList<>();
-    private ArrayList<Ways>  miem = new ArrayList<>();
+    private ArrayList<Ways> fun = new ArrayList<>();
+    private ArrayList<Ways>  relax = new ArrayList<>();
 
     private int groupPos;
     private int childPos;
@@ -33,15 +33,15 @@ public class ActivityPlaces extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
 
-        groups.add(new Ways("Кладбища"));
-        groups.add(new Ways("Миэм"));
+        groups.add(new Ways("Веселье"));
+        groups.add(new Ways("Отдохнуть"));
 
-        cemetery.add(new Ways("Новодевичье"));
-        cemetery.add(new Ways("Ваганьковское"));
+        fun.add(new Ways("Парк"));
+        fun.add(new Ways("Кино"));
 
-        miem.add(new Ways("МИЭМ"));
+        relax.add(new Ways("Кафе"));
 
-        list = new ListOfWays(groups, cemetery, miem, 0);
+        list = new ListOfWays(groups, fun, relax, 0);
 
         String[] groupFrom = new String[]{"groupName"};
         int[] groupTo = new int[]{android.R.id.text1};
@@ -86,13 +86,13 @@ public class ActivityPlaces extends AppCompatActivity {
         if (item.getItemId() == R.id.option_del1){
             if (groupPos == 0) {
 
-                cemetery.remove(childPos);
-                list.upDateContentList("genre", cemetery, miem, 0);
+                fun.remove(childPos);
+                list.upDateContentList("genre", fun, relax, 0);
                 adapter.notifyDataSetChanged();
             }
             else{
-                miem.remove(childPos);
-                list.upDateContentList("genre", cemetery, miem, 0);
+                relax.remove(childPos);
+                list.upDateContentList("genre", fun, relax, 0);
                 adapter.notifyDataSetChanged();
             }
         }
@@ -118,7 +118,7 @@ public class ActivityPlaces extends AppCompatActivity {
         //Настраиваем сообщение в диалоговом окне:
         mDialogBuilder
                 .setCancelable(false)
-                .setPositiveButton("Добавить в Кладбища",
+                .setPositiveButton("Добавить в Веселье",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
                                 //Вводим текст и отображаем в строке ввода на основном экране:
@@ -141,16 +141,16 @@ public class ActivityPlaces extends AppCompatActivity {
                                 }
                                 else{
                                     Ways add = new Ways(word);
-                                    cemetery.add(cemetery.size(), add);
+                                    fun.add(fun.size(), add);
 
-                                    list.upDateContentList("genre", cemetery, miem, 0);
+                                    list.upDateContentList("genre", fun, relax, 0);
                                     adapter.notifyDataSetChanged();
                                 }
 
 
                             }
                         })
-                .setNegativeButton("Добавить в МИЭМ",
+                .setNegativeButton("Добавить в Отдохнуть",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
                                 //Вводим текст и отображаем в строке ввода на основном экране:
@@ -172,9 +172,9 @@ public class ActivityPlaces extends AppCompatActivity {
                                 }
                                 else {
                                     Ways add = new Ways(word);
-                                    miem.add(miem.size(), add);
+                                    relax.add(relax.size(), add);
 
-                                    list.upDateContentList("genre", cemetery, miem, 0);
+                                    list.upDateContentList("genre", fun, relax, 0);
                                     adapter.notifyDataSetChanged();
                                 }
 
