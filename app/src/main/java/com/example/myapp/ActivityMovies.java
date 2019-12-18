@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -239,6 +240,16 @@ public class ActivityMovies extends AppCompatActivity {
 
         //и отображаем его:
         alertDialog.show();
+
+        Button buttonNeg = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+        Button buttonPos = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+
+        if(buttonNeg != null) {
+            buttonNeg.setTextColor(Color.parseColor("#000000"));
+        }
+        if(buttonPos != null) {
+            buttonPos.setTextColor(Color.parseColor("#000000"));
+        }
     }
 
 }
